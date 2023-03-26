@@ -29,7 +29,8 @@ public class DemoQaTest extends BaseTest {
                  cityDelhi = RandomDataUtils.getRandomDataFromArray(cityValue) ;
 
 
-        registrationPage.setUserName(name)
+        registrationPage.removeBanner()
+                .setUserName(name)
                 .setUserLastName(lastName)
                 .setUserEmail(email)
                 .setGender(gender)

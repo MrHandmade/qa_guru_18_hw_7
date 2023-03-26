@@ -23,11 +23,4 @@ public class BaseTest {
         Selenide.open(baseUrl + "automation-practice-form");
     }
 
-
-    public static void removeBanner(){
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#fixedban').remove()");
-
-    }
-
 }

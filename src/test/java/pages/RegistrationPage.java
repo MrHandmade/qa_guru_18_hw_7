@@ -7,6 +7,7 @@ import pages.components.RegistrationResult;
 import java.io.File;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
     private final CalendarComponents calendarComponents = new CalendarComponents();
@@ -27,7 +28,11 @@ public class RegistrationPage {
             closeButton = $x("//button[@id='closeLargeModal']");
 
 
-
+    public RegistrationPage removeBanner(){
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+        return this;
+    }
     public RegistrationPage setUserName(String valueName){
         userName.setValue(valueName);
         return this;
