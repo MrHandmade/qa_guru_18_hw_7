@@ -3,11 +3,8 @@ package core;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
-import pages.RegistrationPage;
-import utils.RandomDataUtils;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class BaseTest {
 
