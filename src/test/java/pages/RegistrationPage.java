@@ -64,18 +64,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobbiesSports(String hobbiesSport){
-        $x("//label[text()=" + "'" + hobbiesSport + "'" + "]").click();
-        return this;
-    }
-
-    public RegistrationPage setHobbiesMusic(String hobbiesMusic){
+    public RegistrationPage setHobbies(String hobbiesMusic){
         $x("//label[text()=" + "'" + hobbiesMusic + "'" + "]").click();
-        return this;
-    }
-
-    public RegistrationPage setHobbiesReading(String hobbiesReading){
-        $x("//label[text()=" + "'" + hobbiesReading + "'" + "]").click();
         return this;
     }
 

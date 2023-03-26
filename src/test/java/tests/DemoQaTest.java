@@ -1,26 +1,32 @@
 package tests;
 
+
 import core.BaseTest;
 import org.junit.jupiter.api.Test;
 
+import pages.RegistrationPage;
+import utils.RandomDataUtils;
+
+import static utils.RandomDataUtils.*;
+
+
 public class DemoQaTest extends BaseTest {
+    public RegistrationPage registrationPage = new RegistrationPage();
     @Test
     public void registrationFormTest(){
-         String name = "Maxim",
-                 lastName = "Shavykin",
-                 email = "test@email.com",
-                 gender = "Male",
-                 userNumber = "7999888322",
-                 dayOfBirth = "31",
-                 monthOfBirth = "December",
-                 yearOfBirth = "2000",
-                 subject = "English",
-                 hobbiesMusic = "Music",
-                 hobbiesReading = "Reading",
-                 hobbiesSports = "Sports",
-                 address = "Baker.st",
+         String name = RandomDataUtils.getRandomName(),
+                 lastName = RandomDataUtils.getRandomLastName(),
+                 email = RandomDataUtils.getRandomEmail(),
+                 gender = RandomDataUtils.getRandomGender(),
+                 userNumber = RandomDataUtils.getRandomPhoneNumber(),
+                 dayOfBirth = String.valueOf(RandomDataUtils.getRandomDay()),
+                 monthOfBirth = RandomDataUtils.getRandomDataFromArray(monthsValue),
+                 yearOfBirth = String.valueOf(RandomDataUtils.getRandomYear()),
+                 subject = RandomDataUtils.getRandomDataFromArray(subjectsValue),
+                 hobbies = RandomDataUtils.getRandomDataFromArray(hobbiesValue),
+                 address = RandomDataUtils.getRandomAddress(),
                  stateNcr = "NCR",
-                 cityDelhi = "Delhi";
+                 cityDelhi = RandomDataUtils.getRandomDataFromArray(cityValue) ;
 
 
         registrationPage.setUserName(name)
@@ -30,9 +36,7 @@ public class DemoQaTest extends BaseTest {
                 .setUserNumber(userNumber)
                 .setBirthdayDate(dayOfBirth, monthOfBirth, yearOfBirth)
                 .setSubject(subject)
-                .setHobbiesMusic(hobbiesMusic)
-                .setHobbiesReading(hobbiesReading)
-                .setHobbiesSports(hobbiesSports)
+                .setHobbies(hobbies)
                 .setPicture()
                 .setAddress(address)
                 .setState(stateNcr)
@@ -46,7 +50,7 @@ public class DemoQaTest extends BaseTest {
                 .registrationFormResult("Mobile", userNumber)
                 .registrationFormResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .registrationFormResult("Subjects", subject)
-                .registrationFormResult ("Hobbies", hobbiesMusic + ", " + hobbiesReading + ", " + hobbiesSports)
+                .registrationFormResult ("Hobbies", hobbies)
                 .registrationFormResult("Address", address)
                 .registrationFormResult("State and City", stateNcr + " " + cityDelhi)
                 .closeModal();
