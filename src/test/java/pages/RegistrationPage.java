@@ -76,7 +76,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setPicture() {
-        File pic = new File("src/test/java/resource/pwa_vertical_1280_55d23da46a4b99f74eedbba9ec98aa80.jpg");
+        File pic = new File("src/test/resources/pwa_vertical_1280_55d23da46a4b99f74eedbba9ec98aa80.jpg");
         uploadPicture.uploadFile(pic);
         return this;
     }
