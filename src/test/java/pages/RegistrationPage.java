@@ -28,92 +28,93 @@ public class RegistrationPage {
             closeButton = $x("//button[@id='closeLargeModal']");
 
 
-    public RegistrationPage removeBanner(){
+    public RegistrationPage removeBanner() {
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
         return this;
     }
-    public RegistrationPage setUserName(String valueName){
+
+    public RegistrationPage setUserName(String valueName) {
         userName.setValue(valueName);
         return this;
     }
 
-    public RegistrationPage setUserLastName(String valueLastName){
+    public RegistrationPage setUserLastName(String valueLastName) {
         userLastname.setValue(valueLastName);
         return this;
     }
 
-    public RegistrationPage setUserEmail(String valueUserEmail){
+    public RegistrationPage setUserEmail(String valueUserEmail) {
         userEmail.setValue(valueUserEmail);
         return this;
     }
 
-    public RegistrationPage setUserNumber(String valueUserNumber){
+    public RegistrationPage setUserNumber(String valueUserNumber) {
         userNumber.setValue(valueUserNumber);
         return this;
     }
 
-    public RegistrationPage setGender(String gender){
+    public RegistrationPage setGender(String gender) {
         $x("//label[text()=" + "'" + gender + "'" + "]").click();
         return this;
     }
 
-    public RegistrationPage setBirthdayDate(String day, String month, String year){
+    public RegistrationPage setBirthdayDate(String day, String month, String year) {
         calendar.click();
         calendarComponents.setBirthdayDate(day, month, year);
         return this;
     }
 
-    public RegistrationPage setSubject(String subjectValue){
+    public RegistrationPage setSubject(String subjectValue) {
         subject.setValue(subjectValue).pressEnter();
         return this;
     }
 
-    public RegistrationPage setHobbies(String hobbiesMusic){
+    public RegistrationPage setHobbies(String hobbiesMusic) {
         $x("//label[text()=" + "'" + hobbiesMusic + "'" + "]").click();
         return this;
     }
 
-    public RegistrationPage setPicture(){
+    public RegistrationPage setPicture() {
         File pic = new File("src/test/java/resource/pwa_vertical_1280_55d23da46a4b99f74eedbba9ec98aa80.jpg");
         uploadPicture.uploadFile(pic);
         return this;
     }
 
-    public RegistrationPage setAddress(String currentAddressValue){
+    public RegistrationPage setAddress(String currentAddressValue) {
         currentAddress.setValue(currentAddressValue);
         return this;
     }
 
-    public RegistrationPage setState(String stateNcr){
+    public RegistrationPage setState(String stateNcr) {
         state.click();
         $x("//div[text()=" + "'" + stateNcr + "'" + "]").click();
         return this;
     }
 
-    public RegistrationPage setCity(String cityDelhi){
+    public RegistrationPage setCity(String cityDelhi) {
         city.click();
         $x("//div[text()=" + "'" + cityDelhi + "'" + "]").click();
         return this;
     }
 
-    public RegistrationPage submitRegistrationForm(){
+    public RegistrationPage submitRegistrationForm() {
         submit.click();
         return this;
 
     }
 
-    public RegistrationPage registrationResult(){
+    public RegistrationPage registrationResult() {
         registrationResult.verifyResult();
         return this;
     }
 
-    public RegistrationPage registrationFormResult(String value, String key){
+    public RegistrationPage registrationFormResult(String value, String key) {
         registrationResult.formResults(value, key);
         return this;
     }
 
-    public RegistrationPage closeModal(){
+    public RegistrationPage closeModal() {
         closeButton.click();
         return this;
     }

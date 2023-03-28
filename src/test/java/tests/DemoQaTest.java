@@ -5,28 +5,27 @@ import core.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import pages.RegistrationPage;
-import utils.RandomDataUtils;
-
 import static utils.RandomDataUtils.*;
 
 
 public class DemoQaTest extends BaseTest {
     public RegistrationPage registrationPage = new RegistrationPage();
+
     @Test
-    public void registrationFormTest(){
-         String name = RandomDataUtils.getRandomName(),
-                 lastName = RandomDataUtils.getRandomLastName(),
-                 email = RandomDataUtils.getRandomEmail(),
-                 gender = RandomDataUtils.getRandomGender(),
-                 userNumber = RandomDataUtils.getRandomPhoneNumber(),
-                 dayOfBirth = String.valueOf(RandomDataUtils.getRandomDay()),
-                 monthOfBirth = RandomDataUtils.getRandomDataFromArray(monthsValue),
-                 yearOfBirth = String.valueOf(RandomDataUtils.getRandomYear()),
-                 subject = RandomDataUtils.getRandomDataFromArray(subjectsValue),
-                 hobbies = RandomDataUtils.getRandomDataFromArray(hobbiesValue),
-                 address = RandomDataUtils.getRandomAddress(),
-                 stateNcr = "NCR",
-                 cityDelhi = RandomDataUtils.getRandomDataFromArray(cityValue) ;
+    public void registrationFormTest() {
+        String name = getRandomName(),
+                lastName = getRandomLastName(),
+                email = getRandomEmail(),
+                gender = getRandomGender(),
+                userNumber = getRandomPhoneNumber(),
+                dayOfBirth = String.valueOf(getRandomDay()),
+                monthOfBirth = getRandomDataFromArray(monthsValue),
+                yearOfBirth = String.valueOf(getRandomYear()),
+                subject = getRandomDataFromArray(subjectsValue),
+                hobbies = getRandomDataFromArray(hobbiesValue),
+                address = getRandomAddress(),
+                state = stateValue,
+                city = setCity() ;
 
 
         registrationPage.removeBanner()
@@ -40,8 +39,8 @@ public class DemoQaTest extends BaseTest {
                 .setHobbies(hobbies)
                 .setPicture()
                 .setAddress(address)
-                .setState(stateNcr)
-                .setCity(cityDelhi)
+                .setState(state)
+                .setCity(city)
                 .submitRegistrationForm()
 
                 .registrationResult()
@@ -51,15 +50,10 @@ public class DemoQaTest extends BaseTest {
                 .registrationFormResult("Mobile", userNumber)
                 .registrationFormResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .registrationFormResult("Subjects", subject)
-                .registrationFormResult ("Hobbies", hobbies)
+                .registrationFormResult("Hobbies", hobbies)
                 .registrationFormResult("Address", address)
-                .registrationFormResult("State and City", stateNcr + " " + cityDelhi)
+                .registrationFormResult("State and City", state + " " + city)
                 .closeModal();
-
-                
-
-
-
     }
 
 }

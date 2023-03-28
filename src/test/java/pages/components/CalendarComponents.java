@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class CalendarComponents {
     private static final ElementsCollection monthNYear = $$x("//select");
 
-    public CalendarComponents setBirthdayDate(String day, String month, String year){
+    public CalendarComponents setBirthdayDate(String day, String month, String year) {
         monthNYear.first().click();
         $x("//option[text()= " + "'" + month + "'" + "]").click();
         monthNYear.last().click();

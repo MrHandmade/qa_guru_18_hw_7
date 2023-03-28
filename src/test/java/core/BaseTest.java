@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 public class BaseTest {
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.screenshots = false;
