@@ -19,10 +19,10 @@ public class DemoQaTest extends BaseTest {
                 gender = getRandomGender(),
                 userNumber = getRandomPhoneNumber(),
                 dayOfBirth = String.valueOf(getRandomDay()),
-                monthOfBirth = getRandomDataFromArray(monthsValue),
+                monthOfBirth = monthsValue,
                 yearOfBirth = String.valueOf(getRandomYear()),
-                subject = getRandomDataFromArray(subjectsValue),
-                hobbies = getRandomDataFromArray(hobbiesValue),
+                subject = subjectsValue,
+                hobbies = hobbiesValue,
                 address = getRandomAddress(),
                 state = stateValue,
                 city = setCity() ;

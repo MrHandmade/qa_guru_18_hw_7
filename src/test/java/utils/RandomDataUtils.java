@@ -2,44 +2,40 @@ package utils;
 
 import com.github.javafaker.Faker;
 
-import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomDataUtils {
 
-    public static String[] monthsValue = {"January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"};
-    public static String[] subjectsValue = {"Accounting", "Maths", "Arts", "English", "Physics", "Chemistry",
-            "Computer Science", "Economics", "Social Studies", "History", "Civics", "Commerce", "Hindi", "Biology"};
-    public static String[] hobbiesValue = {"Sports", "Music", "Reading"};
+    public static String monthsValue = new Faker().options().option("January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December");
+    public static String subjectsValue = new Faker().options().option("Accounting", "Maths", "Arts", "English", "Physics", "Chemistry",
+            "Computer Science", "Economics", "Social Studies", "History", "Civics", "Commerce", "Hindi", "Biology");
+    public static String hobbiesValue = new Faker().options().option("Sports", "Music", "Reading");
     public static String stateValue = new Faker().options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     public static String[] ncrCityValue = {"Delhi", "Gurgaon", "Noida"};
-    public static String[] UttarPradeshCityValue = {"Agra", "Lucknow", "Merrut"};
-    public static String[] HaryanaCityValue = {"Karnal", "Panipat"};
+    public static String[] uttarPradeshCityValue = {"Agra", "Lucknow", "Merrut"};
+    public static String[] haryanaCityValue = {"Karnal", "Panipat"};
+    public static String[] rajasthanCityValue = {"Jaipur", "Jaiselmer"};
 
 
     public static String setCity() {
-        if (stateValue.equals("NCR")) {
-            return getRandomDataFromArray(ncrCityValue);
-        } else if (stateValue.equals("Uttar Pradesh")) {
-            return getRandomDataFromArray(UttarPradeshCityValue);
-        } else if (stateValue.equals("Haryana")) {
-            return getRandomDataFromArray(HaryanaCityValue);
+        switch (stateValue) {
+            case "NCR":
+                return new Faker().options().option(ncrCityValue);
+
+            case "Uttar Pradesh":
+                return new Faker().options().option(uttarPradeshCityValue);
+
+            case "Haryana":
+                return new Faker().options().option(haryanaCityValue);
+
+            case "Rajasthan":
+                return new Faker().options().option(rajasthanCityValue);
         }
 
         return null;
 
     }
 
-    public static int getRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
-
-    }
-
-    public static String getRandomDataFromArray(String[] values) {
-        int index = getRandomInt(0, values.length - 1);
-        return values[index];
-
-    }
 
     public static String getRandomName() {
         return new Faker().name().firstName();
