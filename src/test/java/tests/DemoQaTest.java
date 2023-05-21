@@ -5,6 +5,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import core.BaseTest;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import pages.RegistrationPage;
@@ -16,7 +17,9 @@ import static utils.RandomDataUtils.*;
 public class DemoQaTest extends BaseTest {
     public RegistrationPage registrationPage = new RegistrationPage();
 
+
     @Test
+    @Tag("remote")
     public void registrationFormTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
