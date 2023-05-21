@@ -54,7 +54,7 @@ public class DemoQaTest extends BaseTest {
                     .submitRegistrationForm();
         });
 
-        step("Заполнеяем форму", () -> {
+        step("Проверяем заполнение формы", () -> {
             registrationPage.registrationResult()
                     .registrationFormResult("Student Name", name + " " + lastName)
                     .registrationFormResult("Student Email", email)
